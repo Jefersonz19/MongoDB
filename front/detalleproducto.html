@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width">
+     <title> Detalles del Producto </title>
+</head>
+<body>
+   <header>
+        <h1>Detalles Producto</h1>
+   </header>
+   <div class="detalles-producto"></div>
+<script>
+    const urlParams = new URL(window.location.href); 
+    const productId = urlParams.searchParams.get('Id');
+    //document.write(productId);
+    const productJSON= localStorage.getItem(`product_${productId}`);
+
+// Si el product está en localStorage, convierte el JSON a un objeto JS.
+if (productJSON) {  
+       const productJSON = JSON.parse(productJSON);
+     //  document.write(productJSON);
+     // const productJSON = JSON.parse(productJSON) ;
+     //   console.log(productJSON);
+   //  Mostrar productos de detalle en la página
+const detallesContainer = document.querySelector('.detalles-producto');
+      detallesContainer.innerHTML = `
+       <h2>${product.title}</h2>
+       <img src="${product.image}" alt="${product.title}" style="widht: 232px">
+       <p><strong>Precio:</strong> $${product.price}</p>
+       <p><strong>Descripcion: </strong> ${product.description}</p>
+      `;
+} else {
+    console.log('Producto no encontrado en el almacenamiento local.');
+}
+</script>
+</body>
+</html>
+
