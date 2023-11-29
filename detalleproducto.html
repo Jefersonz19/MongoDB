@@ -4,15 +4,30 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width">
      <title> Detalles del Producto </title>
+     <link href="styleDetalles.css" rel="stylesheet" type="text/css" />
 </head>
+     
 <body>
-   <header>
-        <h1>Detalles Producto</h1>
-   </header>
-   <div class="detalles-producto"></div>
+   <header style="margin-top: -21px">
+        <h1>
+            <div class="title-header">
+            </div>
+        </h1>
+        
+     <div class="content-main">  
+        <nav>
+          <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="#">User</a></li>
+         </nav>
+     </div> 
+</header>   
+
+<div class="detalles-producto"></div>
+
 <script>
     const urlParams = new URL(window.location.href); 
-    const productId = urlParams.searchParams.get('Id');
+    const productId = urlParams.searchParams.get('_id');
     //document.write(productId);
     const productJSON= localStorage.getItem(`product_${productId}`);
 
@@ -32,8 +47,8 @@ const detallesContainer = document.querySelector('.detalles-producto');
        <img src="${product.imagen}" alt="${product.titulo}" style="widht: 232px">
        </div>
        <div style="width:50%;"> 
-       <p><strong>Precio:</strong> $${product.precio}</p>
-       <p><strong>Descripcion: </strong> ${product.descripcion}</p>
+         <p><strong>Precio:</strong> $${product.precio}</p>
+         <p><strong>Descripcion: </strong> ${product.descripcion}</p>
        </div>
       `;
 } else {
