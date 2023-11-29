@@ -39,22 +39,20 @@
         localStorage.setItem(`product_${product.id}`, JSON.stringify(product));
 // template literal se guarda en backtick
       products += ` <div class = "card" style="width: 18 rem;">
-      <img src="${product.imagen}" style="width: 100 px" class="card-img-top" alt="...">
+      <img src="${product.imagen}" style="width: 100 em" class="card-img-top" alt="...">
       
       <div class="card-body">                                 
         <h5 class="card-text"> ${product.titulo} </h5> 
-        <p class="card-text"> ${product.descripcion} </p>
         <p class="card-text"> ${product.precio} </p>
         <a href="detalleproducto.html?id=${product.id}" 
         class="btn-primary"> Ver detalle </a>
        </div> 
-    </div> `;                        
+    </div> `;      
+        
       });
     container.innerHTML = products;
       });
 </script>
-
-<!-- document.querySelector(‘.container’).innerHTML = ‘Hola mundo’; -->
 
 </body>
 </html>
