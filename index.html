@@ -3,37 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title> Jefer's Store </title>
-  <link rel="stylesheet"  type="text/css" />
+  <title> Tienda Virtual </title>
+  <link href="styles.css" rel="stylesheet"  type="text/css" />
 </head>
 <body>
+ <header style="margin-top: -21px">
+    <h1>
+       <div class="titulo-page">
+        Jefer's Store
+        </div>   
+     </h1>
+
+ <div class="Header"> 
+
+   <div class="content-main">  
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">User</a></li>
+       </ul>
+     </nav>
+    </div>  
+
+  </header>
+
     <div class= "container"></div>
-    <div class= "details"  style="display: none;"></div>
-  
-<styles>
-
-  .container {
-  display: flex;    
-  flex-wrap:  wrap;
-  justify-content: space-between;
-  padding: 25px;
-}
-
-.card {
-  margin: 5 px;
-  border: 2px solid gray;
-  max-width: 300px;
-  padding: 15px;
-  border-radius: 20px;
-  font-family: Arial, Helvetica, sans-serif;
- }
-  
-</styles>
+      
 <script>   
   async function obtenerProductos() {    
     try {
-    //  const response = await fetch('https://tiendavirtual.jefersonz1997.repl.co/productos'); 
-      const response = await fetch('https://tiendavirtual.jefersonz1997.repl.co/productosfromGraphql')
+      //  const response = await fetch('https://tiendavirtual.jefersonz1997.repl.co/productos'); 
+      const response = await fetch('https://tiendavirtual.jefersonz1997.repl.co/productsFromGraphql');
       if(!response.ok){
          throw new Error('Error en la solicitud');
        }
@@ -54,23 +54,22 @@
       //console.log(products);
      
       products.products.forEach((product) => {
-        localStorage.setItem(`product_${product.id}`, JSON.stringify(product));
-// template literal se guarda en backtick
-      products += ` <div class = "card" style="width: 18 rem;">
-      <img src="${product.imagen}" style="width: 100 em" class="card-img-top" alt="...">
+      localStorage.setItem(`product_${product.id}`, JSON.stringify(product));
+      products += ` <div class = "card" style="width: 15rem; text-align: center">    // template literal se guarda en backtick
+      <img src="${product.imagen}" style="width: 10 em" class="card-img-top" alt="...">
       
       <div class="card-body">                                 
-        <h5 class="card-text"> ${product.titulo} </h5> 
+        <h4 class="card-text"> ${product.titulo} </h4> 
         <p class="card-text"> ${product.precio} </p>
-        <a href="detalleproducto.html?id=${product.id}" 
-        class="btn-primary"> Ver detalle </a>
+        <a href="detalleproducto.html?_id=${product.id}" 
+        class="btn btn-primary"> Ver detalle </a>
        </div> 
     </div> `;      
         
       });
     container.innerHTML = products;
       });
-</script>
+  </script>
 
 </body>
 </html>
