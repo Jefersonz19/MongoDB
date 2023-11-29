@@ -3,12 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Tienda Virtual </title>
-  <link href="style.css"  rel="stylesheet"  type="text/css" />
+  <title> Jefer's Store </title>
+  <link href="styles.css"  rel="stylesheet"  type="text/css" />
 </head>
 <body>
-    <div class= "contenedor"></div>
-    <div class= "detalles"  style="display: none;"></div>
+    <div class= "container"></div>
+    <div class= "details"  style="display: none;"></div>
+  <nav>
+    <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Usuarios</a></li>
+    </ul>
+   </nav>
   
 <script>   
   async function obtenerProductos() {    
@@ -29,15 +36,15 @@
   // obtenerProductos();
 
    document.addEventListener("DOMContentLoaded", async () => {
-      const contenedor = document.querySelector(".contenedor");
+      const container = document.querySelector(".container");
       const products = await obtenerProductos();
-      let productos = "";
+      let products = "";
       //console.log(products);
      
-      products.productos.forEach((product) => {
+      products.products.forEach((product) => {
         localStorage.setItem(`product_${product.id}`, JSON.stringify(product));
 // template literal se guarda en backtick
-      productos += ` <div class = "card" style="width: 18 rem;">
+      products += ` <div class = "card" style="width: 18 rem;">
       <img src="${product.imagen}" style="width: 100 px" class="card-img-top" alt="...">
       
       <div class="card-body">                                 
@@ -49,11 +56,11 @@
        </div> 
     </div> `;                        
       });
-    contenedor.innerHTML = productos;
+    container.innerHTML = products;
       });
 </script>
 
-<!-- document.querySelector(‘.contenedor’).innerHTML = ‘Hola mundo’; -->
+<!-- document.querySelector(‘.container’).innerHTML = ‘Hola mundo’; -->
 
 </body>
 </html>
