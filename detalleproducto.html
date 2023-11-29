@@ -23,12 +23,18 @@ if (productJSON) {
      // const productJSON = JSON.parse(productJSON) ;
      //   console.log(productJSON);
    //  Mostrar productos de detalle en la página
+
+     
 const detallesContainer = document.querySelector('.detalles-producto');
       detallesContainer.innerHTML = `
-       <h2>${product.title}</h2>
-       <img src="${product.image}" alt="${product.title}" style="widht: 232px">
-       <p><strong>Precio:</strong> $${product.price}</p>
-       <p><strong>Descripcion: </strong> ${product.description}</p>
+       <div style="width:50%;">
+       <h2>${product.titulo}</h2>
+       <img src="${product.imagen}" alt="${product.titulo}" style="widht: 232px">
+       </div>
+       <div style="width:50%;"> 
+       <p><strong>Precio:</strong> $${product.precio}</p>
+       <p><strong>Descripcion: </strong> ${product.descripcion}</p>
+       </div>
       `;
 } else {
     console.log('Producto no encontrado en el almacenamiento local.');
