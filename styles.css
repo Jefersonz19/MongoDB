@@ -20,23 +20,10 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
  }
 
-.titulo-page{
-  position: relative;
-  background-color: #0E0325; 
-  flex-grow: 1;
-  margin: 1px;
-  color: #fff; 
-  text-align: center; 
-  padding: 0.1em; 
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.5em;
-}
-
 .Header {
   display: flex;
-  justify-content: space-between; /* Coloca los elementos en los extremos */
-  align-items: center; /* Centra verticalmente los elementos */
+  justify-content: space-between; 
+  align-items: center; 
   background-color: #fff; /* Color de fondo */
   padding: 10px; /* Espaciado */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -45,6 +32,6 @@ html, body {
 }
 
 .content-main {
-  flex-grow: 1; /* La barra de navegación ocupa todo el espacio disponible */
+  flex-grow: 1; 
 }
 
